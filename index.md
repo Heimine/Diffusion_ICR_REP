@@ -49,16 +49,16 @@ $$
 \bm{s}(\bm{x}_0) := \mathbb{E}_a\!\left[\bm{h}(a(\bm{x}_0))\mid \bm{x}_0\right], \qquad \bm{\xi}(a,\bm{x}_0) := \bm{h}(a(\bm{x}_0)) - \bm{s}(\bm{x}_0).
 $$
 
-<p>Here <span class="math-inline">\(\bm{s}\)</span> is the <em>invariant component</em> — stable across noisy and augmented views — and <span class="math-inline">\(\bm{\xi}\)</span> is the <em>residual component</em> capturing view-specific variation. The total feature covariance then decomposes cleanly as <span class="math-inline">\(\Sigma_h = \Sigma_s + \Sigma_\xi\)</span>.</p>
+<p>Here <span class="math-inline">\(\bm{s}\)</span> is the <em>invariant component</em> — stable across noisy and augmented views — and <span class="math-inline">\(\bm{\xi}\)</span> is the <em>residual component</em> capturing view-specific variation. The total feature covariance then decomposes cleanly as <span class="math-inline">\(\bm{\Sigma}_h = \bm{\Sigma}_s + \bm{\Sigma}_\xi\)</span>.</p>
 
 ---
 
 <p class="lead-italic"><em>The Invariant Contamination Ratio (ICR)</em></p>
 
-<p>To summarize the health of the representation space in a single trackable scalar, we introduce the <strong>Invariant Contamination Ratio (ICR)</strong>. We solve the generalized eigenproblem <span class="math-inline">\(\Sigma_s \bm{v}_i = \lambda_i \Sigma_\xi \bm{v}_i\)</span>, where each eigenvalue <span class="math-inline">\(\lambda_i\)</span> measures the invariant signal-to-noise ratio along a <button class="inline-note-trigger" type="button" aria-expanded="false" aria-controls="note-fisher" data-note-target="note-fisher">Fisher direction</button>:</p>
+<p>To summarize the health of the representation space in a single trackable scalar, we introduce the <strong>Invariant Contamination Ratio (ICR)</strong>. We solve the generalized eigenproblem <span class="math-inline">\(\bm{\Sigma}_s \bm{v}_i = \lambda_i \bm{\Sigma}_\xi \bm{v}_i\)</span>, where each eigenvalue <span class="math-inline">\(\lambda_i\)</span> measures the invariant signal-to-noise ratio along a <button class="inline-note-trigger" type="button" aria-expanded="false" aria-controls="note-fisher" data-note-target="note-fisher">Fisher direction</button>:</p>
 
 <div id="note-fisher" class="inline-note-body" hidden>
-  <p>This follows the same generalized eigenstructure as classical Fisher Linear Discriminant Analysis, where <span class="math-inline">\(\Sigma_s\)</span> and <span class="math-inline">\(\Sigma_\xi\)</span> play roles analogous to between-class and within-class covariances — with each individual image acting as its own "class."</p>
+  <p>This follows the same generalized eigenstructure as classical Fisher Linear Discriminant Analysis, where <span class="math-inline">\(\bm{\Sigma}_s\)</span> and <span class="math-inline">\(\bm{\Sigma}_\xi\)</span> play roles analogous to between-class and within-class covariances — with each individual image acting as its own "class."</p>
 </div>
 
 $$
@@ -100,15 +100,16 @@ $$
 
 <p>The ICR minimum marks the transition point: beyond it, the model gradually starts to memorize individual training samples rather than learning shared semantic structure. The nearest neighbors of the invariant component track this transition qualitatively — they are semantically meaningful near the ICR minimum and degrade on both sides.</p>
 
-<img class="feature-figure" src="{{ '/assets/figures/Mem_imagenet64.png' | relative_url }}"
+<img class="feature-figure" src="{{ '/assets/figures/nearest_neighbors_training.png' | relative_url }}"
   alt="Nearest neighbors of the invariant component at three training stages: early, ICR minimum, and severe overfitting."
   width="80%" style="display:block;margin:auto;" />
+<p class="figure-caption"><strong>Nearest neighbors track the training transition.</strong> At the ICR minimum (middle row), retrieved neighbors are more semantically close than the early and late stages, where ICR is larger.</p>
 
 ---
 
 <p class="lead-italic"><em>What drives feature expansion?</em></p>
 
-<p>ICR is a relative measure; it does not directly reveal how total representation energy evolves. Examining the traces <span class="math-inline">\(\mathrm{Tr}(\Sigma_s)\)</span> and <span class="math-inline">\(\mathrm{Tr}(\Sigma_\xi)\)</span> separately also shows a difference between training regimes. In the data-rich setting, growing feature capacity is predominantly devoted to the invariant component <span class="math-inline">\(\Sigma_s\)</span>. In the data-limited setting, once the limited semantic structure has been largely extracted, further feature expansion is dominated by the residual component <span class="math-inline">\(\Sigma_\xi\)</span> — the model starts "filling up" with noise rather than signal.</p>
+<p>ICR is a relative measure; it does not directly reveal how total representation energy evolves. Examining the traces <span class="math-inline">\(\mathrm{Tr}(\bm{\Sigma}_s)\)</span> and <span class="math-inline">\(\mathrm{Tr}(\bm{\Sigma}_\xi)\)</span> separately also shows a difference between training regimes. In the data-rich setting, growing feature capacity is predominantly devoted to the invariant component <span class="math-inline">\(\bm{\Sigma}_s\)</span>. In the data-limited setting, once the limited semantic structure has been largely extracted, further feature expansion is dominated by the residual component <span class="math-inline">\(\bm{\Sigma}_\xi\)</span> — the model starts "filling up" with noise rather than signal.</p>
 
 <img class="feature-figure" src="{{ '/assets/figures/trace_comparison.png' | relative_url }}" alt="Bar charts showing that data-rich training expands the invariant covariance trace, while data-limited training expands the residual trace." width="80%" style="display:block;margin:auto;" />
 <p class="figure-caption"><strong>Feature expansion is driven by invariant structure when data are abundant, and by residual variation when data are scarce and invariant structure signal is saturated.</strong></p>
