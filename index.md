@@ -100,7 +100,7 @@ $$
 
 <p>The ICR minimum marks the transition point: beyond it, the model gradually starts to memorize individual training samples rather than learning shared semantic structure. The nearest neighbors of the invariant component track this transition qualitatively — they are semantically meaningful near the ICR minimum and degrade on both sides.</p>
 
-<img class="feature-figure" src="{{ '/assets/figures/nearest_neighbors_training.png' | relative_url }}"
+<img class="feature-figure" src="{{ '/assets/figures/Mem_imagenet64.png' | relative_url }}"
   alt="Nearest neighbors of the invariant component at three training stages: early, ICR minimum, and severe overfitting."
   width="80%" style="display:block;margin:auto;" />
 <p class="figure-caption"><strong>Nearest neighbors track the training transition.</strong> At the ICR minimum (middle row), retrieved neighbors are more semantically close than the early and late stages, where ICR is larger.</p>
