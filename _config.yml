@@ -1,0 +1,27 @@
+description: "Evaluating diffusion models through representation geometry."
+url: "https://la0ka1.github.io"
+baseurl: "/diffusion-model-knows-overfits"
+repository: "la0ka1/diffusion-model-knows-overfits"
+
+remote_theme: "mmistakes/minimal-mistakes"
+minimal_mistakes_skin: "air"
+
+plugins:
+  - jekyll-include-cache
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  math_engine: mathjax
+
+author:
+  name: "Xiao Li"
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: single
+      classes: wide
+      toc: false
+      toc_sticky: false
