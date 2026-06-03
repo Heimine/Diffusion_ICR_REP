@@ -1,10 +1,10 @@
-description: "Evaluating diffusion models through representation geometry."
-url: "https://la0ka1.github.io"
-baseurl: "/diffusion-model-knows-overfits"
-repository: "la0ka1/diffusion-model-knows-overfits"
+description: "Evaluating the Representation Space of Diffusion Models via Self-Supervised Principles"
+url: "https://heimine.github.io/"
+baseurl: "/Diffusion_ICR_REP"
+repository: "heimine/Diffusion_ICR_REP"
 
 remote_theme: "mmistakes/minimal-mistakes"
-minimal_mistakes_skin: "air"
+minimal_mistakes_skin: "air"   # try: "air", "dark", "mint", "sunrise"
 
 plugins:
   - jekyll-include-cache

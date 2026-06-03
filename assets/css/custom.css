@@ -353,10 +353,3 @@ mjx-container[display="true"] {
     white-space: nowrap;
   }
 }
-
-
-/* Project page refinements */
-.page__content a { text-decoration-thickness: 1px; text-underline-offset: 0.12em; }
-.page__content .feature-figure { border-radius: 0.35rem; }
-.page__content .figure-caption { white-space: normal !important; }
-.button-row a.btn.btn--warning { background-color: #7c3aed !important; color: #ffffff !important; }
