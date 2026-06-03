@@ -10,7 +10,7 @@ classes: wide
 <p class="button-row">
 <!-- <a class="btn btn--success" href="{{ site.github.repository_url }}"><i class="fab fa-github" aria-hidden="true"></i> Code</a> -->
 <a class="btn btn--arxiv" href="#"><i class="fas fa-file-alt" aria-hidden="true"></i> arXiv</a>
-<a class="btn btn--openreview" href="#"><i class="fas fa-book-open" aria-hidden="true"></i> OpenReview</a>
+<a class="btn btn--openreview" href="https://openreview.net/forum?id=2yMTCCHEjU"><i class="fas fa-book-open" aria-hidden="true"></i> OpenReview</a>
 <a class="btn btn--warning" href="#"><i class="fas fa-chalkboard" aria-hidden="true"></i> Slides</a>
 </p>
 
@@ -32,7 +32,7 @@ classes: wide
 
 <p>This raises a natural question: if diffusion models are strong representation learners, can we use the <em>quality of their representations</em> as a window into their generative behavior?</p>
 
-<img class="feature-figure figure--narrow" src="{{ '/assets/figures/teaser_safe_final.pdf' | relative_url }}" alt="Tight clustering of invariant representations and semantic nearest neighbors." width="80%" style="display:block;margin:auto;" />
+<img class="feature-figure figure--narrow" src="{{ '/assets/figures/teaser_safe_final.png' | relative_url }}" alt="Tight clustering of invariant representations and semantic nearest neighbors." width="80%" style="display:block;margin:auto;" />
 <p class="figure-caption"><strong>Invariant vs. residual components.</strong> Nearest neighbors via the invariant component <span class="math-inline">\(\bm{s}\)</span> are semantically related to the query; neighbors via the residual <span class="math-inline">\(\bm{\xi}\)</span> are not.</p>
 
 ---
@@ -95,12 +95,12 @@ $$
   <p>The early learning phenomenon in diffusion models — where image quality initially improves before the model begins to memorize — has been documented across several recent works. See for exmaple <a href="https://arxiv.org/abs/2410.24060">Li et al. (2024)</a> and <a href="https://arxiv.org/abs/2505.17638">Bonnaire et al. (2026)</a>.</p>
 </div>
 
-<img class="feature-figure" src="{{ '/assets/figures/c10_4096_icml_memratio.pdf' | relative_url }}" alt="ICR follows a U-shaped curve in data-limited training; the memorization ratio begins rising after the ICR minimum." width="85%" style="display:block;margin:auto;" />
+<img class="feature-figure" src="{{ '/assets/figures/c10_4096_icml_memratio.png' | relative_url }}" alt="ICR follows a U-shaped curve in data-limited training; the memorization ratio begins rising after the ICR minimum." width="85%" style="display:block;margin:auto;" />
 <p class="figure-caption"><strong>ICR anticipates memorization.</strong> The memorization ratio remains near zero around the ICR minimum and rises only afterward — making ICR a practical, label-free early stopping signal.</p>
 
 <p>The ICR minimum marks the transition point: beyond it, the model gradually starts to memorize individual training samples rather than learning shared semantic structure. The nearest neighbors of the invariant component track this transition qualitatively — they are semantically meaningful near the ICR minimum and degrade on both sides.</p>
 
-<img class="feature-figure" src="{{ '/assets/figures/Mem_imagenet64.pdf' | relative_url }}"
+<img class="feature-figure" src="{{ '/assets/figures/Mem_imagenet64.png' | relative_url }}"
   alt="Nearest neighbors of the invariant component at three training stages: early, ICR minimum, and severe overfitting."
   width="80%" style="display:block;margin:auto;" />
 
