@@ -32,8 +32,8 @@ classes: wide
 
 <p>This raises a natural question: if diffusion models are strong representation learners, can we use the <em>quality of their representations</em> as a window into their generative behavior?</p>
 
-<img class="feature-figure figure--narrow" src="{{ '/assets/figures/teaser_safe_final.png' | relative_url }}" alt="Tight clustering of invariant representations and semantic nearest neighbors." width="80%" style="display:block;margin:auto;" />
-<p class="figure-caption"><strong>Invariant vs. residual components.</strong> Nearest neighbors via the invariant component <span class="math-inline">\(\bm{s}\)</span> are semantically related to the query; neighbors via the residual <span class="math-inline">\(\bm{\xi}\)</span> are not.</p>
+<img class="feature-figure figure--narrow" src="{{ '/assets/figures/concept_demo.png' | relative_url }}" alt="Concept demonstration." width="80%" style="display:block;margin:auto;" />
+<p class="figure-caption"><strong>Overview of the <span class="math-inline">\mathrm{ICR}</span> Framework.</strong> Each training image is augmented and passed through the diffusion feature extractor, decomposing representations into an invariant component <span class="math-inline">\bm{s}</span> and a residual <span class="math-inline">\bm{\xi}</span>; their covariances define <span class="math-inline">\mathrm{ICR}</span>. </p>
 
 ---
 
@@ -48,6 +48,9 @@ classes: wide
 $$
 \bm{s}(\bm{x}_0) := \mathbb{E}_a\!\left[\bm{h}(a(\bm{x}_0))\mid \bm{x}_0\right], \qquad \bm{\xi}(a,\bm{x}_0) := \bm{h}(a(\bm{x}_0)) - \bm{s}(\bm{x}_0).
 $$
+
+<img class="feature-figure figure--narrow" src="{{ '/assets/figures/teaser_safe_final.png' | relative_url }}" alt="Tight clustering of invariant representations and semantic nearest neighbors." width="80%" style="display:block;margin:auto;" />
+<p class="figure-caption"><strong>Invariant vs. residual components.</strong> Nearest neighbors via the invariant component <span class="math-inline">\(\bm{s}\)</span> are semantically related to the query; neighbors via the residual <span class="math-inline">\(\bm{\xi}\)</span> are not.</p>
 
 <p>Here <span class="math-inline">\(\bm{s}\)</span> is the <em>invariant component</em> — stable across noisy and augmented views — and <span class="math-inline">\(\bm{\xi}\)</span> is the <em>residual component</em> capturing view-specific variation. The total feature covariance then decomposes cleanly as <span class="math-inline">\(\bm{\Sigma}_h = \bm{\Sigma}_s + \bm{\Sigma}_\xi\)</span>.</p>
 
