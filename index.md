@@ -9,7 +9,8 @@ classes: wide
 
 <p class="button-row">
 <!-- <a class="btn btn--success" href="{{ site.github.repository_url }}"><i class="fab fa-github" aria-hidden="true"></i> Code</a> -->
-<a class="btn btn--arxiv" href="#"><i class="fas fa-file-alt" aria-hidden="true"></i> arXiv</a>
+<a class="btn btn--arxiv" href="https://arxiv.org/abs/2606.09718"><i class="fas fa-file-alt" aria-hidden="true"></i> arXiv</a>
+<a class="btn btn--alpha" href="https://alphaxiv.org/abs/2606.09718"><i class="fas fa-comments" aria-hidden="true"></i> alphaXiv</a>
 <a class="btn btn--openreview" href="https://openreview.net/forum?id=2yMTCCHEjU"><i class="fas fa-book-open" aria-hidden="true"></i> OpenReview</a>
 <a class="btn btn--warning" href="#"><i class="fas fa-chalkboard" aria-hidden="true"></i> Slides</a>
 </p>
